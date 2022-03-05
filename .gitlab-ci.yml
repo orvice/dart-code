@@ -1,0 +1,8 @@
+stages:
+  - build
+
+build:
+  image: dart
+  stage: build
+  script:
+    - dart main.dart
