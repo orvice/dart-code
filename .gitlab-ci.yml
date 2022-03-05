@@ -4,5 +4,7 @@ stages:
 build:
   image: dart
   stage: build
+  before_script:
+    - dart pub get
   script:
     - dart main.dart
