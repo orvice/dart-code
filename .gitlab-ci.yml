@@ -6,5 +6,6 @@ build:
   stage: build
   before_script:
     - dart pub get
+    - make
   script:
     - dart main.dart

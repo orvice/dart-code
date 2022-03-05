@@ -4,5 +4,13 @@ description: some dart code
 environment:
   sdk: '>=2.10.0 <3.0.0'
 dependencies: 
-  build_runner: ^2.1.7
-  json_serializable: ^6.1.4
+  json_annotation: ^4.4.0
+  http: ^0.13.4
+  sprintf: ^4.0.2
+  dio: any
+
+
+dev_dependencies:
+  build_runner: ^2.0.0
+  json_serializable: ^6.0.0
+
