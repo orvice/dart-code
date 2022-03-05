@@ -7,9 +7,10 @@ class IP {
   @JsonKey(name: 'ip')
   String ip;
 
+  @JsonKey(name: 'city')
   String city;
 
-  IP(this.ip,this.city)
+  IP(this.ip, this.city);
 
   /// Connect the generated [_$IPFromJson] function to the `fromJson`
   /// factory.
