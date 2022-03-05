@@ -10,6 +10,7 @@ void main() async {
   Map<String, dynamic> ipMap = json.decode(response.body);
   var ip = new IP.fromJson(ipMap);
   print(ip.ip);
+  print(ip.org);
 }
 
 Function getIPInfo() {
