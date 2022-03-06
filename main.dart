@@ -4,19 +4,23 @@ import 'lib/model/ip.dart';
 
 void main() async {
   print('Hello, World!');
-  var url = Uri.parse('https://ipinfo.io/json');
-  var response = await http.get(url);
-  // print(response.body);
-  Map<String, dynamic> ipMap = json.decode(response.body);
+  var response = await getIPInfo();
+  // print(response);
+  Map<String, dynamic> ipMap = json.decode(response);
   var ip = new IP.fromJson(ipMap);
-  print(ip.ip);
+  print(ipString(ip.ip));
   print(ip.org);
 }
 
-Function getIPInfo() {
-  return () async {
-    var url = Uri.parse('https://ipinfo.io/json');
-    var response = await http.get(url);
-    return response.body;
-  };
+Future<String> getIPInfo() async {
+  var url = Uri.parse('https://ipinfo.io/json');
+  var response = await http.get(url);
+  return response.body;
+}
+
+String ipString(String? ip) {
+  if (ip == null) {
+    return 'Unknown';
+  }
+  return ip + " - ip";
 }
