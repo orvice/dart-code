@@ -8,12 +8,14 @@ part of 'ip.dart';
 
 IP _$IPFromJson(Map<String, dynamic> json) => IP(
       json['ip'] as String,
-      json['city'] as String,
       json['org'] as String,
-    );
+    )
+      ..city = json['city'] as String
+      ..region = json['region'] as String;
 
 Map<String, dynamic> _$IPToJson(IP instance) => <String, dynamic>{
-      'ip': instance.ip,
       'city': instance.city,
+      'region': instance.region,
+      'ip': instance.ip,
       'org': instance.org,
     };

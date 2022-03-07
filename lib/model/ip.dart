@@ -3,16 +3,13 @@ import 'package:json_annotation/json_annotation.dart';
 part 'ip.g.dart';
 
 @JsonSerializable()
-class IP {
+class IP with loc {
   @JsonKey(name: 'ip')
   String ip;
 
-  @JsonKey(name: 'city')
-  String city;
-
   String org;
 
-  IP(this.ip, this.city, this.org);
+  IP(this.ip, this.org);
 
   /// Connect the generated [_$IPFromJson] function to the `fromJson`
   /// factory.
@@ -20,4 +17,12 @@ class IP {
 
   /// Connect the generated [_$IPToJson] function to the `toJson` method.
   Map<String, dynamic> toJson() => _$IPToJson(this);
+}
+
+mixin loc {
+  @JsonKey(name: 'city')
+  String city = '';
+
+  @JsonKey(name: 'region')
+  String region = '';
 }

@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:http/retry.dart';
 import 'dart:convert';
 import 'lib/model/ip.dart';
 
@@ -9,12 +10,13 @@ void main() async {
   Map<String, dynamic> ipMap = json.decode(response);
   var ip = new IP.fromJson(ipMap);
   print(ipString(ip.ip));
-  print(ip.org);
+  print(ip.city);
 }
 
 Future<String> getIPInfo() async {
   var url = Uri.parse('https://ipinfo.io/json');
-  var response = await http.get(url);
+  final client = RetryClient(http.Client());
+  var response = await client.get(url);
   return response.body;
 }
 
